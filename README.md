@@ -1,3 +1,5 @@
+
+
 # ManyVoid
 ## 상태 : 완료
 # Original Source
@@ -27,7 +29,11 @@ ECS프로젝트를 완성한지 얼마 안되어 "ECS를 적용하는 실제 프
   + 최적화의 핵심이고 가장 궁금했던 3(ECS + Jobs) , 4(ECS + Superfast Jobs)를 우선타겟으로 집중했습니다.
   + Unity공식문서를 기반으로 AI에게 오류가 나는 객체들을 대응해서 버전업을 하며 발전된 라이브러리 등을 사용하여 수정했습니다.
 3. 실행 : 수정이 완료된 코드들을 유니티에서 실행하며 결과를 확인했습니다.
-  + 
+## 3(ECS + Jobs) Object : 10000 , FPS : 20 ~
+<img width="2538" height="1002" alt="ManyVoid_Step3(ECS+Jobs)" src="https://github.com/user-attachments/assets/98a215a2-8516-4544-a30b-99e1d60e83b4" />
+
+## 4(ECS + Suprefast Jobs) Object : 100000 , FPS : 18 ~
+<img width="2538" height="1002" alt="ManyVoid_Step4(ECS+Superfast Jobs)" src="https://github.com/user-attachments/assets/0c4dfaff-719a-472a-8fdc-9443acebac1a" />
 
 # 프로젝트 회고 및 느낀 점
 + AI활용의 한계와 개발자의 역할 : AI는 방대한 정보를 빠르게 요약하고 마이그레이션의 방향성을 제시해 주는 훌룡한 도구였지만, 완벽하게 요구사항을 해결해 주지는 못했습니다. AI의 실수, AI가 수정했던 부분에서 2차 에러가 발생하기도 했으며,
