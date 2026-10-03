@@ -17,8 +17,8 @@
 
 # 프로젝트 목적 및 기획 의도
 ECS프로젝트를 완성한지 얼마 안되어 "ECS를 적용하는 실제 프로젝트가 있을까?","최적화와 관련해서 연관되는게 있을까?", "대규모 시뮬레이션을 만들어보고 싶은데 Unity에서 순수엔진 사용방식으로는 객체생성,관리에 한계가 있는데?"
-라는 꼬리를 무는 의문과, 고민하던 중 군집 알고리즘을 ECS와 UnityJobs를 통해 최적화 하는 실험적인 프로젝트를 발견하게 되었습니다. 10만개의 오브젝트를 관리하면서 20FPS 정도를 지킬수 있다는게 매우 흥미롭고 매력적이었습니다. 
-이 프로젝트는 Boids 군집 알고리즘을 OOP 와 Unity DOTS(ECS) + Unity Jobs 등 4단계로 구현해 놓은 오픈소스 입니다. 하지만 유니티 구버전 엔진으로 작성 되어 현재 환경에서는 수많은 에러를 뿜으며 실행조차 되지 않는 상태였습니다.
+라는 꼬리를 무는 의문과, 고민하던 중 군집 알고리즘을 ECS와 Unity Job System를 통해 최적화 하는 실험적인 프로젝트를 발견하게 되었습니다. 10만개의 오브젝트를 관리하면서 20FPS 정도를 지킬수 있다는게 매우 흥미롭고 매력적이었습니다. 
+이 프로젝트는 Boids 군집 알고리즘을 OOP 와 Unity DOTS(ECS) + Unity Job System 등 4단계로 구현해 놓은 오픈소스 입니다. 하지만 유니티 구버전 엔진으로 작성 되어 현재 환경에서는 수많은 에러를 뿜으며 실행조차 되지 않는 상태였습니다.
 저는 이 프로젝트의 성능 비교 환경을 복원하기 위해, GPT-5.3을 적극적으로 활용하여 마이그레이션 작업을 진행했습니다. AI를 단순한 코드 생성기가 아닌, 구버전 API를 최신 API로 치환하는 마이그레이션 도우미로 활용하였습니다.
 
 # AI를 활용한 문제 해결 프로세스
@@ -26,13 +26,13 @@ ECS프로젝트를 완성한지 얼마 안되어 "ECS를 적용하는 실제 프
 1. 에러 수집 : 현재 발생하는 에러 로그와 해당 스크립트를 통째로 추출하여 AI에게 주입했습니다.
   + AI에게 분석을 맡겨 문제가 발생하는 이유, 개선 가능성 , 개선을 위한 파이프라인 수립 등을 도출해냈습니다.
 2. 단계적 점진 마이그레이션 : 4단계로 구분되어 있는 프로젝트들 중 3, 4 단계를 집중하여 마이그레이션을 했습니다.
-  + 최적화의 핵심이고 가장 궁금했던 3(ECS + Jobs) , 4(ECS + Superfast Jobs)를 우선타겟으로 집중했습니다.
+  + 최적화의 핵심이고 가장 궁금했던 3(Unity DOTS(ECS) + Unity Job System) , 4(Unity DOTS(ECS) + Superfast Jobs)를 우선타겟으로 집중했습니다.
   + Unity공식문서를 기반으로 AI에게 오류가 나는 객체들을 대응해서 버전업을 하며 발전된 라이브러리 등을 사용하여 수정했습니다.
 3. 실행 : 수정이 완료된 코드들을 유니티에서 실행하며 결과를 확인했습니다.
-## 3(ECS + Jobs) Object : 10000 , FPS : 20 ~
+## 3(Unity DOTS(ECS) + Unity Job System) Object : 10000 , FPS : 20 ~
 <img width="2538" height="1002" alt="ManyVoid_Step3(ECS+Jobs)" src="https://github.com/user-attachments/assets/98a215a2-8516-4544-a30b-99e1d60e83b4" />
 
-## 4(ECS + Suprefast Jobs) Object : 100000 , FPS : 18 ~
+## 4(Unity DOTS(ECS) + Suprefast Jobs) Object : 100000 , FPS : 18 ~
 <img width="2538" height="1002" alt="ManyVoid_Step4(ECS+Superfast Jobs)" src="https://github.com/user-attachments/assets/0c4dfaff-719a-472a-8fdc-9443acebac1a" />
 
 # 프로젝트 회고 및 느낀 점
